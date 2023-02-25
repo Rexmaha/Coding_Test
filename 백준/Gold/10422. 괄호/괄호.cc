@@ -26,8 +26,4 @@ int main(){
         cin>>l;
         cout<<dp[l]<<'\n';
     }
-/*
-    for(int i=2;i<=100;i+=2){
-        cout<<"n = "<<i<<", 결과 = "<<dp[i]<<'\n';
-    }*/
 }
