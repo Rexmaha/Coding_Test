@@ -27,18 +27,13 @@ int main(){
 
         string non_repeat="", repeat="";
         for(int i=2;i<sosu.length();i++){
-            if(sosu[i]=='(') {
+            if(sosu[i]=='(' || sosu[i]==')') {
                 paren=true;
                 continue;
             }
-            if(sosu[i]==')') continue;
             
-            if(paren){
-                repeat+=sosu[i];
-            }
-            else{
-                non_repeat+=sosu[i];
-            }
+            if(paren) repeat+=sosu[i];
+            else non_repeat+=sosu[i];
         }
 
         ll bunmo, bunja, gcd;
