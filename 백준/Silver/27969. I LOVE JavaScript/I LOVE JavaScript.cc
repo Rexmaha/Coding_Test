@@ -1,10 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <stack>
 #include <string>
 using namespace std;
 typedef unsigned long long ull;
-stack<char> st;
 
 int main(){
     ios_base::sync_with_stdio(false); cout.tie(NULL); cin.tie(NULL);
@@ -13,11 +10,7 @@ int main(){
     ull res=0;
     for(int i=0;i<ason.length();i++){
         if(ason[i]=='[') {
-            st.push('[');
             res+=8;
-        }
-        else if(ason[i]==']' && !st.empty()){
-            st.pop();
         }
         else if(ason[i]>='0' && ason[i]<='9'){
             do{
