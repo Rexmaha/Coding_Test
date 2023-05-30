@@ -15,7 +15,6 @@ void dfs(int x, int y){
         if(newX>=0 && newX<n && newY>=0 && newY<n){
             if(rain[newX][newY]>=k && visited[newX][newY]==false){
                 visited[newX][newY]=true;
-                //cout<<"newX = "<<newX<<", newY = "<<newY<<endl;
                 dfs(newX, newY);
             }
         }
@@ -45,7 +44,6 @@ int main(){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(!visited[i][j] && rain[i][j]>=k){
-                    //cout<<"i = "<<i<<", j = "<<j<<endl;
                     visited[i][j]=true;
                     dfs(i, j);
                     ++cnt;
