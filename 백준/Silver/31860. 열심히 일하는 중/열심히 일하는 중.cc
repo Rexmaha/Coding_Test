@@ -29,11 +29,9 @@ int main(){
 
         int top = pq.top();
         top -= m;
-        if(top<=k){
-            pq.pop();
-        }
-        else{
-            pq.pop();
+        pq.pop();
+
+        if (top>k){
             pq.push(top);
         }
     }
