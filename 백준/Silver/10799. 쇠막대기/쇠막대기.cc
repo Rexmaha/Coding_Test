@@ -13,12 +13,11 @@ int main(){
             st.push('(');
         }
         else{
+            st.pop();
             if(paren[i-1] == '('){
-                st.pop();
                 res+=st.size();
             }
             else{
-                st.pop();
                 res+=1;
             }
         }
