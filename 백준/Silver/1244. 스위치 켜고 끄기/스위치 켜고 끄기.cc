@@ -2,15 +2,6 @@
 #define FASTIO cin.tie(NULL); cout.tie(NULL); ios_base::sync_with_stdio(false);
 using namespace std;
 
-
-void printVector(vector<int> v){
-    for(int i=1;i<v.size();i++){
-        cout<<v[i]<<' ';
-    }
-    cout<<"\n";
-    cout<<'\n';
-}
-
 int main(){
     FASTIO
 
@@ -30,7 +21,6 @@ int main(){
                 if(swit[i*switchNum] == 0) swit[i*switchNum] = 1;
                 else swit[i*switchNum] = 0;
             }
-            //printVector(swit);
         }
         else{
             int dis = 1;
@@ -41,13 +31,11 @@ int main(){
 
                 ++dis;
             }
-            //cout<<"dis: "<<dis<<'\n';
 
             for(int i = switchNum-dis+1; i<=switchNum+dis-1; i++){
                 if(swit[i] == 0) swit[i] = 1;
                 else swit[i] = 0;
             }
-            //printVector(swit);
         }
     }
 
