@@ -7,7 +7,7 @@ int main(){
 
     int switchSize; cin>>switchSize;
     vector<int> switches(switchSize+1, 0);
-    for(int i=1;i<switches.size();i++){
+    for(int i=1;i<=switchSize;i++){
         cin>>switches[i];
     }
 
@@ -37,7 +37,7 @@ int main(){
         }
     }
 
-    for(int i=1;i<switches.size();i++){
+    for(int i=1;i<=switchSize;i++){
         cout<< switches[i] << (i%20 == 0 ? '\n' : ' ');
     }
 }
