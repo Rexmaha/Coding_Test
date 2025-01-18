@@ -8,14 +8,17 @@ int main(){
     string s; cin>>s;
     vector<int> alphabet(26, 0);
 
-    for(int i=0;i<s.length();i++){
-        alphabet[s[i]-'A']++;
+    for(char c:s){
+        alphabet[c - 'A']++;
     }
 
-    int odd = 0, even = 0;
+    int odd = 0;
+    char oddChar = '\0';
     for(int i=0;i<26;i++){
-        if(alphabet[i] % 2 == 0) even++;
-        else odd++;
+        if(alphabet[i] % 2 != 0) {
+            odd++;
+            oddChar = i + 'A';
+        }
     }
 
     if((s.length() % 2 == 0 && odd != 0) || (s.length() % 2 != 0 && odd > 1)) {
@@ -23,37 +26,18 @@ int main(){
         return 0;
     }
 
-    string ans = "";
-    if(s.length() % 2 == 0){
-        for(int i=0;i<26;i++){
-            if(alphabet[i] != 0){
-                for(int j=0;j<alphabet[i] / 2;j++){
-                    ans+=(char)(i + 'A');
-                }
-            }
-        }
-        string reversedString = ans;
-        reverse(reversedString.begin(), reversedString.end());
-        cout<<ans+reversedString;
+    string half = "";
+    for(int i = 0;i<26;i++){
+        half += string(alphabet[i] / 2, i+'A');
     }
-    else{
-        char oddChar;
-        for(int i=0;i<26;i++){
-            if(alphabet[i] % 2 != 0){
-                oddChar = (char)(i + 'A');
-                for(int j=0;j<(alphabet[i] - 1) / 2;j++){
-                    ans+=(char)(i + 'A');
-                }
-            }
-            else if(alphabet[i] != 0){
-                for(int j=0;j<alphabet[i] / 2;j++){
-                    ans+=(char)(i + 'A');
-                }
-            }
-        }
-        ans += oddChar;
-        string reversedString = ans.substr(0, ans.length() - 1);
-        reverse(reversedString.begin(), reversedString.end());
-        cout<<ans+reversedString;
+
+    string palindrome = half;
+    if(oddChar != '\0'){
+        palindrome += oddChar;
     }
+
+    reverse(half.begin(), half.end());
+    palindrome+=half;
+
+    cout<<palindrome;
 }
